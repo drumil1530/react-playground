@@ -1,9 +1,9 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
-import UseStateDemo from './pages/UseStateDemo';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import UseStateDemo from './pages/hooks/01-useState/UseStateDemo';
 import './App.css';
-import UseEffectDemo from './pages/UseEffectDemo';
-import UseRefDemo from './pages/UseRefDemo';
-import UseCallbackDemo from './pages/UseCallbackDemo';
+import UseEffectDemo from './pages/hooks/02-useEffect/UseEffectDemo';
+import UseRefDemo from './pages/hooks/03-useRef/UseRefDemo';
+import UseCallbackDemo from './pages/hooks/04-useCallback/UseCallbackDemo';
 import Home from './pages/Home';
 
 function App() {
@@ -12,7 +12,9 @@ function App() {
   return (
     <>
       <nav className="flex flex-wrap justify-between items-center gap-3 p-4 mx-2 my-3 rounded-2xl shadow-lg bg-white">
-        <div></div>
+        <div className='text-blue-500 text-2xl font-bold ml-2'>
+          <Link to={"/"}>Playground</Link>
+        </div>
         <div className="flex flex-wrap justify-center items-center gap-1">
           {pages.map((p) => {
             return (
