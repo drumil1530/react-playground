@@ -1,10 +1,13 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 
 const ToDo = () => {
   const [list, setList] = useState<string[]>([]);
   const [task, setTask] = useState('');
+  const renderCount = useRef(0);
+
+  renderCount.current = renderCount.current + 1;
 
   function addTask(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
@@ -58,6 +61,10 @@ const ToDo = () => {
           })}
         </ul>
       )}
+
+      <p className="text-gray-500 italic mt-4">
+        Rendered {renderCount.current} times
+      </p>
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import React, { type InputHTMLAttributes } from 'react';
+import React, { type InputHTMLAttributes, type RefAttributes } from 'react';
 
 // Extending native input props for full flexibility
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTMLInputElement> {
   label?: string; // Optional label for the input
   error?: string; // Optional error message
 }
