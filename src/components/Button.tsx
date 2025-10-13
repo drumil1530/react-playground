@@ -1,91 +1,41 @@
-import type { ReactNode } from "react";
+import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
-type ButtonColor =
-  | 'slate'
-  | 'gray'
-  | 'zinc'
-  | 'neutral'
-  | 'stone'
-  | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
-  | 'pink'
-  | 'rose'
-  | 'white';
+type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
 
 type ButtonRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
 
+type ButtonFont =
+  | 'font-thin'
+  | 'font-light'
+  | 'font-normal'
+  | 'font-medium'
+  | 'font-semibold'
+  | 'font-bold'
+  | 'font-extrabold';
+
+type ButtonPadding = 'px-2 py-1' | 'px-4 py-2' | 'px-6 py-3' | 'px-3 py-1';
+
+type ButtonCursor =
+  | 'cursor-default'
+  | 'cursor-pointer'
+  | 'hover:cursor-pointer'
+  | 'cursor-not-allowed'
+  | 'hover:cursor-not-allowed';
+
 type ButtonProps = {
-  textColor?: ButtonColor;
-  bgColor?: ButtonColor;
-  radius?: ButtonRadius;
-  text: ReactNode;
-  onClick?: () => void;
-  padding?: string;
-};
+  variant?: ButtonVariant;
+  className?: string;
+  styleOverrides?: Partial<ButtonStyle>;
+  children: ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const textColorMap: Record<ButtonColor, string> = {
-  slate: 'text-slate-700',
-  gray: 'text-gray-700',
-  zinc: 'text-zinc-700',
-  neutral: 'text-neutral-700',
-  stone: 'text-stone-700',
-  red: 'text-red-700',
-  orange: 'text-orange-700',
-  amber: 'text-amber-700',
-  yellow: 'text-yellow-700',
-  lime: 'text-lime-700',
-  green: 'text-green-700',
-  emerald: 'text-emerald-700',
-  teal: 'text-teal-700',
-  cyan: 'text-cyan-700',
-  sky: 'text-sky-700',
-  blue: 'text-blue-700',
-  indigo: 'text-indigo-700',
-  violet: 'text-violet-700',
-  purple: 'text-purple-700',
-  fuchsia: 'text-fuchsia-700',
-  pink: 'text-pink-700',
-  rose: 'text-rose-700',
-  white: 'text-white',
-};
-
-const bgColorMap: Record<ButtonColor, string> = {
-  slate: 'bg-slate-500',
-  gray: 'bg-gray-500',
-  zinc: 'bg-zinc-500',
-  neutral: 'bg-neutral-500',
-  stone: 'bg-stone-500',
-  red: 'bg-red-500',
-  orange: 'bg-orange-500',
-  amber: 'bg-amber-500',
-  yellow: 'bg-yellow-500',
-  lime: 'bg-lime-500',
-  green: 'bg-green-500',
-  emerald: 'bg-emerald-500',
-  teal: 'bg-teal-500',
-  cyan: 'bg-cyan-500',
-  sky: 'bg-sky-500',
-  blue: 'bg-blue-500',
-  indigo: 'bg-indigo-500',
-  violet: 'bg-violet-500',
-  purple: 'bg-purple-500',
-  fuchsia: 'bg-fuchsia-500',
-  pink: 'bg-pink-500',
-  rose: 'bg-rose-500',
-  white: 'bg-white',
+type ButtonStyle = {
+  bg: string;
+  text: string;
+  padding: ButtonPadding;
+  radius: ButtonRadius;
+  font: ButtonFont;
+  cursor: ButtonCursor;
 };
 
 const radiusMap: Record<ButtonRadius, string> = {
@@ -99,20 +49,46 @@ const radiusMap: Record<ButtonRadius, string> = {
   full: 'rounded-full',
 };
 
+const defaultButtonStyle: ButtonStyle = {
+  bg: 'bg-gray-500',
+  text: 'text-white',
+  padding: 'px-4 py-2',
+  radius: 'xl',
+  font: 'font-semibold',
+  cursor: 'hover:cursor-pointer',
+};
+
+const predefinedVariants: Record<ButtonVariant, Partial<ButtonStyle>> = {
+  primary: { bg: 'bg-primary-500' },
+  secondary: { bg: 'bg-gray-500' },
+  success: { bg: 'bg-success-500' },
+  danger: { bg: 'bg-danger-500' },
+  warning: { bg: 'bg-warning-400', text: 'text-gray-900' },
+};
+
+// Main Button component
 const Button = ({
-  textColor = 'white',
-  bgColor = 'blue',
-  radius = 'md',
-  text,
-  onClick,
-  padding = 'px-4 py-2',
+  variant = 'primary',
+  className = '',
+  styleOverrides = {},
+  children,
+  ...rest
 }: ButtonProps) => {
+  // Compose final style: default + variant + runtime overrides
+  const theme: ButtonStyle = {
+    ...defaultButtonStyle,
+    ...predefinedVariants[variant],
+    ...styleOverrides,
+  };
+
   return (
     <button
-      onClick={onClick}
-      className={`${textColorMap[textColor]} ${bgColorMap[bgColor]} ${radiusMap[radius]} ${padding} font-semibold hover:cursor-pointer`}
+      className={`${theme.bg} ${theme.text} ${radiusMap[theme.radius]} ${
+        theme.padding
+      } ${theme.font} ${theme.cursor} ${className}`}
+      {...rest}
     >
-      {text}
+      {children}
     </button>
   );
 };
