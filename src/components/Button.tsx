@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { ReactNode } from "react";
 
 type ButtonColor =
   | 'slate'
@@ -31,7 +31,7 @@ type ButtonProps = {
   textColor?: ButtonColor;
   bgColor?: ButtonColor;
   radius?: ButtonRadius;
-  text: string | JSX.Element;
+  text: ReactNode;
   onClick?: () => void;
   padding?: string;
 };
