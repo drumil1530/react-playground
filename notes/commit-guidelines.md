@@ -51,7 +51,7 @@ Use `(scope)` when relevant — helps organize commits per component or section:
 
 Example:
 
-```
+```bash
 chore(icons): add remixicon dependency
 feat(todo): implement delete functionality
 refactor(list): separate list item into new component

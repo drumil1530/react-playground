@@ -30,7 +30,7 @@ const LiveFormInput = () => {
     const { name, value } = e.target;
 
     if (!value.trim()) {
-      setError((prev) => ({ ...prev, [name]: `${name} is required` }));
+      setError((prev) => ({ ...prev, [name]: `${name} is requidanger` }));
       return;
     }
 
@@ -59,7 +59,9 @@ const LiveFormInput = () => {
 
   return (
     <div className="w-full max-w-80 px-4 py-6 rounded-xl shadow-xl">
-      <h2 className="text-2xl font-semibold text-blue-500">Live Form Input</h2>
+      <h2 className="text-2xl font-semibold text-primary-500">
+        Live Form Input
+      </h2>
       <form className="flex flex-col">
         <Input
           label="Name"

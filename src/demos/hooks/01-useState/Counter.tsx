@@ -35,28 +35,15 @@ const Counter = () => {
         <span className="font-mono">{count.toString().padStart(2, '0')}</span>
       </p>
       <div className="flex flex-wrap gap-2 mb-2">
-        <Button
-          text={'Increase'}
-          radius="xl"
-          padding="px-3 py-1"
-          onClick={addNum}
-        />
-        <Button
-          bgColor="red"
-          text={'Decrease'}
-          radius="xl"
-          padding="px-3 py-1"
-          onClick={removeNum}
-        />
+        <Button onClick={addNum}>Increase</Button>
+        <Button variant="danger" onClick={removeNum}>
+          Decrease
+        </Button>
       </div>
-      <Button
-        bgColor="neutral"
-        text={'Reset'}
-        radius="xl"
-        padding="px-3 py-1"
-        onClick={reset}
-      />
-      {error && <span className="text-red-500">{error}</span>}
+      <Button variant="secondary" onClick={reset}>
+        Reset
+      </Button>
+      {error && <span className="text-danger-500">{error}</span>}
     </div>
   );
 };

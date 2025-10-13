@@ -9,7 +9,7 @@ const ConsoleMessage = () => {
   }, [checked]);
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 px-4 py-2 rounded-2xl shadow-2xl">
       <label className="relative flex items-center gap-2 cursor-pointer">
         <input
           type="checkbox"
@@ -21,7 +21,7 @@ const ConsoleMessage = () => {
           className={`w-4 h-4 p-2 flex-shrink-0 rounded border border-gray-400 flex items-center justify-center transition-colors
         ${
           checked
-            ? 'bg-blue-500 ring-2 ring-blue-400 border-transparent'
+            ? 'bg-primary-500 ring-2 ring-primary-400 border-transparent'
             : 'bg-white'
         }`}
         >

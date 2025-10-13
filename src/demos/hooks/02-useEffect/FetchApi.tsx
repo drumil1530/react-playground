@@ -38,7 +38,7 @@ const FetchApi = () => {
 
   return (
     <div className="p-5 rounded-2xl shadow-xl flex flex-col w-full">
-      <h1 className="text-3xl text-blue-500 font-semibold">Posts</h1>
+      <h1 className="text-3xl text-primary-500 font-semibold">Posts</h1>
       <ul>
         {(showAll ? posts : posts.slice(0, 4)).map((post) => (
           <li
@@ -51,21 +51,17 @@ const FetchApi = () => {
         ))}
       </ul>
       <div className="self-end">
-        <Button
-          text={
-            showAll ? (
-              <>
-                <i className="ri-subtract-line"></i> Less
-              </>
-            ) : (
-              <>
-                <i className="ri-add-line"></i> More
-              </>
-            )
-          }
-          radius='xl'
-          onClick={() => setShowAll(!showAll)}
-        />
+        <Button onClick={() => setShowAll(!showAll)}>
+          {showAll ? (
+            <>
+              <i className="ri-subtract-line"></i> Less
+            </>
+          ) : (
+            <>
+              <i className="ri-add-line"></i> More
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );

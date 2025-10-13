@@ -22,7 +22,7 @@ const ToDo = () => {
 
   return (
     <div className="w-full max-w-80 px-4 py-6 shadow-xl rounded-2xl">
-      <h2 className="text-2xl font-semibold text-blue-500">To Do List</h2>
+      <h2 className="text-2xl font-semibold text-primary-500">To Do List</h2>
 
       <form className="flex flex-col" onSubmit={(e) => addTask(e)}>
         <Input
@@ -47,12 +47,12 @@ const ToDo = () => {
               >
                 <p className="italic">{t}</p>
                 <Button
-                  bgColor="red"
-                  text={<i className="ri-close-line"></i>}
-                  radius="xl"
+                  variant="danger"
+                  styleOverrides={{ padding: 'px-2 py-1' }}
                   onClick={() => removeTask(i)}
-                  padding="px-2 py-1"
-                />
+                >
+                  <i className="ri-close-line"></i>
+                </Button>
               </li>
             );
           })}
