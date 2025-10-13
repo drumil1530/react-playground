@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '../../../../components/Button';
+import Button from '../../../components/Button';
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -35,12 +35,17 @@ const Counter = () => {
         <span className="font-mono">{count.toString().padStart(2, '0')}</span>
       </p>
       <div className="flex flex-wrap gap-2 mb-2">
-        <Button text={'Increase'} radius="xl" padding='px-3 py-1' onClick={addNum} />
+        <Button
+          text={'Increase'}
+          radius="xl"
+          padding="px-3 py-1"
+          onClick={addNum}
+        />
         <Button
           bgColor="red"
           text={'Decrease'}
           radius="xl"
-          padding='px-3 py-1'
+          padding="px-3 py-1"
           onClick={removeNum}
         />
       </div>
@@ -48,7 +53,7 @@ const Counter = () => {
         bgColor="neutral"
         text={'Reset'}
         radius="xl"
-        padding='px-3 py-1'
+        padding="px-3 py-1"
         onClick={reset}
       />
       {error && <span className="text-red-500">{error}</span>}

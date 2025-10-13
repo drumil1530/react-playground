@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent } from 'react';
-import Input from '../../../../components/Input';
+import Input from '../../../components/Input';
 
 type userInfo = {
   name: string;

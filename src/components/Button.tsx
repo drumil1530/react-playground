@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 type ButtonColor =
   | 'slate'
   | 'gray'
@@ -29,7 +31,7 @@ type ButtonProps = {
   textColor?: ButtonColor;
   bgColor?: ButtonColor;
   radius?: ButtonRadius;
-  text: string;
+  text: string | JSX.Element;
   onClick?: () => void;
   padding?: string;
 };

@@ -1,6 +1,6 @@
-import Counter from './components/Counter';
-import LiveFormInput from './components/LiveFormnput';
-import ToDo from './components/ToDo';
+import Counter from './Counter';
+import LiveFormInput from './LiveFormnput';
+import ToDo from './ToDo';
 
 const UseStateDemo = () => {
   return (

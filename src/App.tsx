@@ -1,9 +1,9 @@
 import { Link, NavLink, Route, Routes } from 'react-router-dom';
-import UseStateDemo from './pages/hooks/01-useState/UseStateDemo';
+import UseStateDemo from './demos/hooks/01-useState/UseStateDemo';
 import './App.css';
-import UseEffectDemo from './pages/hooks/02-useEffect/UseEffectDemo';
-import UseRefDemo from './pages/hooks/03-useRef/UseRefDemo';
-import UseCallbackDemo from './pages/hooks/04-useCallback/UseCallbackDemo';
+import UseEffectDemo from './demos/hooks/02-useEffect/UseEffectDemo';
+import UseRefDemo from './demos/hooks/03-useRef/UseRefDemo';
+import UseCallbackDemo from './demos/hooks/04-useCallback/UseCallbackDemo';
 import Home from './pages/Home';
 
 function App() {

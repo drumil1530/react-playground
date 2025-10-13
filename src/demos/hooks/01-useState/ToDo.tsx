@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
-import Input from '../../../../components/Input';
-import Button from '../../../../components/Button';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
 
 const ToDo = () => {
   const [list, setList] = useState<string[]>([]);
@@ -30,8 +30,8 @@ const ToDo = () => {
           label="Task Name"
           value={task}
           onChange={(e) => getInputValue(e)}
-          placeholder="Enter task name" 
-          name='task'
+          placeholder="Enter task name"
+          name="task"
         />
       </form>
 
@@ -48,10 +48,10 @@ const ToDo = () => {
                 <p className="italic">{t}</p>
                 <Button
                   bgColor="red"
-                  text="x"
+                  text={<i className="ri-close-line"></i>}
                   radius="xl"
                   onClick={() => removeTask(i)}
-                  padding="px-3 py-1"
+                  padding="px-2 py-1"
                 />
               </li>
             );
