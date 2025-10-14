@@ -3,13 +3,13 @@ import UseStateDemo from './demos/hooks/01-useState/UseStateDemo';
 import './App.css';
 import UseEffectDemo from './demos/hooks/02-useEffect/UseEffectDemo';
 import UseRefDemo from './demos/hooks/03-useRef/UseRefDemo';
-import UseCallbackDemo from './demos/hooks/04-useCallback/UseCallbackDemo';
+import UseCallbackDemo from './demos/hooks/05-render-optimization/UseCallbackDemo';
 import Home from './pages/Home';
 import ThemeToggle from './components/ThemeToggle';
 import ReactMemoDemo from './demos/hooks/04-react-memo/ReactMemoDemo';
 
 function App() {
-  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'useCallback'];
+  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'render-optimization'];
 
   return (
     <>
@@ -31,7 +31,7 @@ function App() {
                   }`
                 }
               >
-                {p}
+                {p.replace('-', ' ')}
               </NavLink>
             );
           })}
@@ -45,7 +45,7 @@ function App() {
           <Route path="/useEffect" element={<UseEffectDemo />} />
           <Route path="/useRef" element={<UseRefDemo />} />
           <Route path="/react-memo" element={<ReactMemoDemo />} />
-          <Route path="/useCallback" element={<UseCallbackDemo />} />
+          <Route path="/render-optimization" element={<UseCallbackDemo />} />
         </Routes>
       </div>
     </>
