@@ -6,9 +6,10 @@ import UseRefDemo from './demos/hooks/03-useRef/UseRefDemo';
 import UseCallbackDemo from './demos/hooks/04-useCallback/UseCallbackDemo';
 import Home from './pages/Home';
 import ThemeToggle from './components/ThemeToggle';
+import ReactMemoDemo from './demos/hooks/04-react-memo/ReactMemoDemo';
 
 function App() {
-  const pages = ['home', 'useState', 'useEffect', 'useRef', 'useCallback'];
+  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'useCallback'];
 
   return (
     <>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/useState" element={<UseStateDemo />} />
           <Route path="/useEffect" element={<UseEffectDemo />} />
           <Route path="/useRef" element={<UseRefDemo />} />
+          <Route path="/react-memo" element={<ReactMemoDemo />} />
           <Route path="/useCallback" element={<UseCallbackDemo />} />
         </Routes>
       </div>
