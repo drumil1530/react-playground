@@ -24,7 +24,7 @@ const FetchApi = () => {
         setPosts(res.data);
       } catch (error) {
         setError('Failed to fetch posts');
-        console.log(error);
+        console.error(error);
       } finally {
         setLoading(false);
       }

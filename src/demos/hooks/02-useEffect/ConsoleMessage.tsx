@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react';
 
 const ConsoleMessage = () => {
   const [checked, setChecked] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-    if (checked) console.log('checked!');
-    else console.log('unchecked!');
+    if (checked) {
+      setMessage('Checked!');
+    } else {
+      setMessage('Unchecked!');
+    }
   }, [checked]);
 
   return (
     <div className="flex items-center gap-2 px-4 py-2 rounded-2xl shadow-2xl">
-      <label className="relative flex items-center gap-2 cursor-pointer">
+      <label className="relative flex items-center gap-2 cursor-pointer select-none">
         <input
           type="checkbox"
           checked={checked}
@@ -29,6 +33,7 @@ const ConsoleMessage = () => {
         </span>
         Console Message
       </label>
+      <p className="px-3 border-l-2 border-secondary-500">{message}</p>
     </div>
   );
 };
