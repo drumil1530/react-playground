@@ -8,9 +8,19 @@ import Home from './pages/Home';
 import ThemeToggle from './components/ThemeToggle';
 import ReactMemoDemo from './demos/hooks/04-react-memo/ReactMemoDemo';
 import CustomHooksDemo from './demos/hooks/06-custom-hooks/CustomHooksDemo';
+import UseContextDemo from './demos/hooks/06-useContext/UseContextDemo';
 
 function App() {
-  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'render-optimization', 'custom-hooks'];
+  const pages = [
+    'home',
+    'useState',
+    'useEffect',
+    'useRef',
+    'react-memo',
+    'render-optimization',
+    'custom-hooks',
+    'useContext',
+  ];
 
   return (
     <>
@@ -48,6 +58,7 @@ function App() {
           <Route path="/react-memo" element={<ReactMemoDemo />} />
           <Route path="/render-optimization" element={<UseCallbackDemo />} />
           <Route path="/custom-hooks" element={<CustomHooksDemo />} />
+          <Route path="/useContext" element={<UseContextDemo />} />
         </Routes>
       </div>
     </>
