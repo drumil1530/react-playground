@@ -7,9 +7,10 @@ import UseCallbackDemo from './demos/hooks/05-render-optimization/UseCallbackDem
 import Home from './pages/Home';
 import ThemeToggle from './components/ThemeToggle';
 import ReactMemoDemo from './demos/hooks/04-react-memo/ReactMemoDemo';
+import CustomHooksDemo from './demos/hooks/06-custom-hooks/CustomHooksDemo';
 
 function App() {
-  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'render-optimization'];
+  const pages = ['home', 'useState', 'useEffect', 'useRef', 'react-memo', 'render-optimization', 'custom-hooks'];
 
   return (
     <>
@@ -46,6 +47,7 @@ function App() {
           <Route path="/useRef" element={<UseRefDemo />} />
           <Route path="/react-memo" element={<ReactMemoDemo />} />
           <Route path="/render-optimization" element={<UseCallbackDemo />} />
+          <Route path="/custom-hooks" element={<CustomHooksDemo />} />
         </Routes>
       </div>
     </>
