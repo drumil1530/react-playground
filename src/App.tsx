@@ -9,6 +9,7 @@ import ThemeToggle from './components/ThemeToggle';
 import ReactMemoDemo from './demos/hooks/04-react-memo/ReactMemoDemo';
 import CustomHooksDemo from './demos/hooks/06-custom-hooks/CustomHooksDemo';
 import UseContextDemo from './demos/hooks/06-useContext/UseContextDemo';
+import UserReducerDemo from './demos/hooks/07-useReducer/UserReducerDemo';
 
 function App() {
   const pages = [
@@ -20,6 +21,7 @@ function App() {
     'render-optimization',
     'custom-hooks',
     'useContext',
+    'useReducer',
   ];
 
   return (
@@ -59,6 +61,7 @@ function App() {
           <Route path="/render-optimization" element={<UseCallbackDemo />} />
           <Route path="/custom-hooks" element={<CustomHooksDemo />} />
           <Route path="/useContext" element={<UseContextDemo />} />
+          <Route path="/useReducer" element={<UserReducerDemo />} />
         </Routes>
       </div>
     </>

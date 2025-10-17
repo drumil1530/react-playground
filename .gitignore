@@ -31,3 +31,6 @@ coverage/
 # Misc cache folders
 .cache/
 .parcel-cache/
+
+# Revision Files
+src/demos/revision
